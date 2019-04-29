@@ -9,7 +9,7 @@
 
     <StackPanel VerticalAlignment="Center" Margin="25 25 25 25">
         <TextBox HorizontalAlignment="Center" Margin="0 0 0 25" FontSize="24" FontWeight="Bold">
-            Log in
+            Hi there
         </TextBox>
 
         <TextBlock HorizontalAlignment="Center">
@@ -24,18 +24,14 @@
             Password:
         </TextBlock>
 
-        <TextBox Margin="0 0 0 25">
+        <PasswordBox Margin="0 0 0 25">
 
-        </TextBox>
+        </PasswordBox>
 
-        <Button Margin="25 0 25 10">Log in</Button>
+        <Button Margin="25 0 25 10" x:Name="LogInOrRegister">Log in/register</Button>
 
-        <TextBlock HorizontalAlignment="Center" FontStyle="Italic" FontSize="10"><Run Text="Don't h"/><Run Text="a"/>
-            <Run Text="ve an account?"/>
-            <LineBreak/>
-            <Run Text="Click here to create one!"/>
-        </TextBlock>
-       
+
+
     </StackPanel>
     
 </Window>

@@ -15,7 +15,7 @@
             Username:
         </TextBlock>
 
-        <TextBox Margin="0 0 0 15">
+        <TextBox x:Name="Username" Margin="0 0 0 15">
 
         </TextBox>
 
@@ -23,11 +23,11 @@
             Password:
         </TextBlock>
 
-        <TextBox Margin="0 0 0 25">
+        <TextBox x:Name="Password" Margin="0 0 0 25">
 
         </TextBox>
 
-        <Button x:Name="IsLogInCorrect"  Margin="25 0 25 10">Log in</Button>
+        <Button x:Name="LogInOrRegister"  Margin="25 0 25 10">Log in</Button>
 
         <TextBlock HorizontalAlignment="Center" FontStyle="Italic" FontSize="10"><Run Text="Don't h"/><Run Text="a"/>
             <Run Text="ve an account?"/>

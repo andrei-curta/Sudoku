@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfUserModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserModel>
+    <Username>fghjb</Username>
+    <Password>fgvhb</Password>
+    <StartedGames>0</StartedGames>
+    <WonGames>0</WonGames>
+  </UserModel>
+</ArrayOfUserModel>

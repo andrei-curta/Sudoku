@@ -1,18 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Sudoku.Models
 {
+    [Serializable]
     public static class UsersListModel
     {
+        [XmlArray("UserList")]
+        [XmlArrayItem("User")]
         private static List<UserModel> Users;
+        private static string SavePath = @"E:\Facultate\Anul_II\Sem_II\MVP\2.Teme\3.Sudoku\Sudoku\Sudoku\Sudoku\Data\UsersList.xml";
+        private static UserModel _currentUser;
+
+        public static UserModel CurrentUser
+        {
+            get { return _currentUser; }
+            set { _currentUser = value; }
+        }
+
+        static UsersListModel()
+        {
+            Users = new List<UserModel>();
+        }
+
+        public static bool IsUsernameInDatabase(string username)
+        {
+            return Users.Exists(user => user.Username == username);
+        }
 
         public static bool IsUserInDatabase(string username, string password)
         {
             return Users.Exists(user => user.Username == username && user.Password == password);
         }
+
+        public static void Add(string username, string password)
+        {
+            Users.Add(new UserModel(username, password));
+        }
+
+        public static void Add(UserModel user)
+        {
+            Users.Add(user);
+        }
+
+        public static void Save()
+        {
+            Add(CurrentUser);
+            Serialize();
+        }
+
+        private static void Serialize() 
+        {
+            var serializer = new XmlSerializer(typeof(List<UserModel>));
+            StringBuilder stringBuilder = new StringBuilder();
+            StringWriter stringWriter = new StringWriter(stringBuilder);
+            serializer.Serialize(stringWriter, Users);
+            string xmlResult = stringWriter.GetStringBuilder().ToString();
+
+            System.IO.File.WriteAllText(SavePath, xmlResult);
+        }
+
     }
 }
