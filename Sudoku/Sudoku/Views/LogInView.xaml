@@ -29,11 +29,5 @@
 
         <Button x:Name="LogInOrRegister"  Margin="25 0 25 10">Log in</Button>
 
-        <TextBlock HorizontalAlignment="Center" FontStyle="Italic" FontSize="10"><Run Text="Don't h"/><Run Text="a"/>
-            <Run Text="ve an account?"/>
-            <LineBreak/>
-            <Run Text="Click here to create one!"/>
-        </TextBlock>
-
     </StackPanel>
 </Window>

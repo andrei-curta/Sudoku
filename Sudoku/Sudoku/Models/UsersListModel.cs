@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Sudoku.Models
+namespace Sudoku.ViewModels
 {
     [Serializable]
     public static class UsersListModel
@@ -23,7 +23,7 @@ namespace Sudoku.Models
 
         static UsersListModel()
         {
-            Users = new List<UserModel>();
+            Deserialize();
         }
 
         public static bool IsUsernameInDatabase(string username)
@@ -52,6 +52,15 @@ namespace Sudoku.Models
             Serialize();
         }
 
+        public static void Deserialize()
+        {
+             var serializer = new XmlSerializer(typeof(List<UserModel>));
+
+            StreamReader reader = new StreamReader(SavePath);
+            Users = (List<UserModel>)serializer.Deserialize(reader);
+            reader.Close();
+        }
+
         private static void Serialize() 
         {
             var serializer = new XmlSerializer(typeof(List<UserModel>));
@@ -63,5 +72,16 @@ namespace Sudoku.Models
             System.IO.File.WriteAllText(SavePath, xmlResult);
         }
 
+        public static void SetCurrentUser(string username)
+        {
+            foreach(UserModel user in Users)
+            {
+                if(user.Username == username)
+                {
+                    CurrentUser = user;
+                    return;
+                }
+            }
+        }
     }
 }

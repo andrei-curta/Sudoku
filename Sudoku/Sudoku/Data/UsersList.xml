@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfUserModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <UserModel>
-    <Username>fghjb</Username>
-    <Password>fgvhb</Password>
+    <Username>xzc</Username>
+    <Password>zxc</Password>
+    <StartedGames>0</StartedGames>
+    <WonGames>0</WonGames>
+  </UserModel>
+  <UserModel>
+    <Username>ion</Username>
+    <Password>123</Password>
     <StartedGames>0</StartedGames>
     <WonGames>0</WonGames>
   </UserModel>

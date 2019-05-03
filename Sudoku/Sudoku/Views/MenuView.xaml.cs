@@ -3,11 +3,11 @@
 namespace Sudoku.Views
 {
     /// <summary>
-    /// Interaction logic for LogInView.xaml
+    /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class LogInView : Window
+    public partial class MenuView : Window
     {
-        public LogInView()
+        public MenuView()
         {
             InitializeComponent();
         }

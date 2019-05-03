@@ -1,16 +1,14 @@
 ﻿using Caliburn.Micro;
-using Sudoku.Models;
+using Sudoku.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Sudoku.ViewModels
 {
-    class LogInViewModel : Screen
+    class LogInViewModel : Conductor<object>
     {
+        IWindowManager windowManager = new WindowManager();
+
         private String _username;
         private String _password;
 
@@ -28,7 +26,6 @@ namespace Sudoku.ViewModels
 
         public void LogInOrRegister()
         {
-
             //test wether username field is empty
             if (Username == null)
             {
@@ -49,7 +46,8 @@ namespace Sudoku.ViewModels
 
             if (UsersListModel.IsUserInDatabase(Username, Password))
             {
-                MessageBox.Show("Log In success");
+                UsersListModel.SetCurrentUser(Username);
+                windowManager.ShowWindow(new MenuViewModel());
                 return;
             }
             if(UsersListModel.IsUsernameInDatabase(Username))
@@ -68,7 +66,7 @@ namespace Sudoku.ViewModels
                 UsersListModel.CurrentUser = new UserModel(Username, Password);
                 UsersListModel.Save();
 
-                //Todo: add code to enter the applications
+                windowManager.ShowWindow(new MenuViewModel());
 
                 return;
             }
