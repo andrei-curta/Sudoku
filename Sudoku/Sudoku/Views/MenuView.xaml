@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sudoku.Views"
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
-    <Grid>
+    <Grid RenderTransformOrigin="0.675,0.484">
         <!--Base layout-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -24,9 +24,17 @@
         <!--Left Panel-->
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Image Height="100"/>
-            <TextBlock x:Name="UserData" DataContext="{Binding UserData}" Text="{Binding Username}"/>
+            <TextBlock x:Name="UserData" DataContext="{Binding UserData}" Text="{Binding Username}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             <TextBlock x:Name="MyVar"/>
 
+        </StackPanel>
+
+        <!--Right panel-->
+        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
+            <Button FontSize="20" FontWeight="Bold" Margin="20 180 20 0" x:Name="NewGame"> New Game </Button>
+            <Button FontSize="20" FontWeight="Bold" Margin="20 20 20 0"> Load Game </Button>
+            <Button FontSize="20" FontWeight="Bold" Margin="20"> Statistics </Button>
+            
         </StackPanel>
     </Grid>
 </Window>

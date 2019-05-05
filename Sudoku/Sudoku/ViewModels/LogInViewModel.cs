@@ -47,7 +47,8 @@ namespace Sudoku.ViewModels
             if (UsersListModel.IsUserInDatabase(Username, Password))
             {
                 UsersListModel.SetCurrentUser(Username);
-                windowManager.ShowWindow(new MenuViewModel());
+                windowManager.ShowWindow(new MenuViewModel(windowManager));
+                
                 return;
             }
             if(UsersListModel.IsUsernameInDatabase(Username))
@@ -66,7 +67,7 @@ namespace Sudoku.ViewModels
                 UsersListModel.CurrentUser = new UserModel(Username, Password);
                 UsersListModel.Save();
 
-                windowManager.ShowWindow(new MenuViewModel());
+                windowManager.ShowWindow(new MenuViewModel(windowManager));
 
                 return;
             }

@@ -1,0 +1,67 @@
+﻿<Window x:Class="Sudoku.Views.SudokuBoardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku.Views"
+        mc:Ignorable="d"
+        Title="SudokuBoardView" Height="850" Width="800">
+
+    <!--<Window.Resources>
+        <DataTemplate x:Key="TheBtn">
+            <TextBox Height="60" Width="60" Margin="4,4,4,4" FontSize="20" Text="{Binding}">
+                <TextBox.Background>
+                    <SolidColorBrush Color="AliceBlue"/>
+                </TextBox.Background>
+            </TextBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TheGrid">
+            <ItemsControl ItemsSource="{Binding}" ItemTemplate="{DynamicResource TheBtn}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ItemsControl x:Name="grid" ItemTemplate="{DynamicResource TheGrid}" ItemsSource="{Binding Elements}"/>
+    </Grid>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="AddPerson">Add New Person</Button>
+            <Button x:Name="RemovePerson">Remove Random Person</Button>
+        </StackPanel>
+
+        <ItemsControl x:Name="People" Grid.Row="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding FullName}" />
+                            <TextBox Text="{Binding AccountBalance}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+
+</Window>

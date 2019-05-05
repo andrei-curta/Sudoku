@@ -12,4 +12,10 @@
     <StartedGames>0</StartedGames>
     <WonGames>0</WonGames>
   </UserModel>
+  <UserModel>
+    <Username>ions</Username>
+    <Password>123</Password>
+    <StartedGames>0</StartedGames>
+    <WonGames>0</WonGames>
+  </UserModel>
 </ArrayOfUserModel>

@@ -7,16 +7,29 @@ namespace Sudoku.ViewModels
     {
 
         private UserModel _userData;
+        IWindowManager windowManager;
+
+
+        public MenuViewModel(IWindowManager windowManager)
+        {
+            _userData = UsersListModel.CurrentUser;
+            this.windowManager = windowManager;
+        }
 
         protected override void OnActivate()
         {
-             _userData = UsersListModel.CurrentUser;
+            
             base.OnActivate();
         }
 
         public UserModel UserData
         {
             get { return _userData; }
+        }
+
+        public void NewGame()
+        {
+            windowManager.ShowWindow(new SudokuBoardViewModel(windowManager, 5));
         }
     }
 }

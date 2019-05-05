@@ -3,14 +3,13 @@
 namespace Sudoku.Views
 {
     /// <summary>
-    /// Interaction logic for LogInView.xaml
+    /// Interaction logic for SudokuBoardView.xaml
     /// </summary>
-    public partial class LogInView : Window
+    public partial class SudokuBoardView : Window
     {
-        public LogInView()
+        public SudokuBoardView()
         {
             InitializeComponent();
-            Username.Focus();
         }
     }
 }
