@@ -7,11 +7,19 @@ namespace Sudoku.ViewModels
     {
 
         private UserModel _userData;
-        IWindowManager windowManager;
+        private int _boardSize;
 
+        public int BoardSize
+        {
+            get { return _boardSize; }
+            set { _boardSize = value; }
+        }
+
+        IWindowManager windowManager;
 
         public MenuViewModel(IWindowManager windowManager)
         {
+            _boardSize = 9;
             _userData = UsersListModel.CurrentUser;
             this.windowManager = windowManager;
         }
@@ -29,7 +37,7 @@ namespace Sudoku.ViewModels
 
         public void NewGame()
         {
-            windowManager.ShowWindow(new SudokuBoardViewModel(windowManager, 5));
+            windowManager.ShowWindow(new SudokuBoardViewModel(windowManager, _boardSize));
         }
     }
 }

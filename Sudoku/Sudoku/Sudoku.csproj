@@ -68,8 +68,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\BoardModel.cs" />
-    <Compile Include="Models\CellModel.cs" />
+    <Compile Include="Models\HandleAPI.cs" />
     <Compile Include="ViewModels\SudokuBoardViewModel.cs" />
+    <Compile Include="Views\CellModel.cs" />
+    <Compile Include="Views\CellViewModel.cs" />
     <Compile Include="Views\SudokuBoardView.xaml.cs">
       <DependentUpon>SudokuBoardView.xaml</DependentUpon>
     </Compile>

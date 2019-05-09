@@ -1,35 +1,60 @@
 ﻿using Caliburn.Micro;
 using Sudoku.Models;
+using Sudoku.Views;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Sudoku.ViewModels
 {
     class SudokuBoardViewModel : Conductor<object>
     {
-        public BindableCollection<CellModel> Cells { get; set; }
-        public BindableCollection<string> Elements { get; set; }
-        private uint _size;
+        public ObservableCollection<ObservableCollection<CellModel>> Elements { get; set; }
+        private int _size;
         private IWindowManager windowManager;
+        private BoardModel board;
 
-        //public List<List<string>> Elements { get; set; }
-
-        public uint Size
+        public int Size
         {
             get { return _size; }
             set { _size = value; }
         }
 
-        public SudokuBoardViewModel(IWindowManager windowManager, uint boardSize)
+        public void LoadBoardToScreen()
         {
-            this.windowManager = windowManager;
-            Size = boardSize;
-            Cells = new BindableCollection<CellModel>();
-            Elements = new BindableCollection<string>();
-            for (int i = 0; i < 5; i++)
+            string b = "100004530500000610046008000800590006000407000400062003000300250051000007083700009";
+            for (int i = 0; i < _size; i++)
             {
-                Elements.Add(i.ToString());
-                
+                Elements.Add(new ObservableCollection<CellModel>());
+                for (int j = 0; j < _size; j++)
+                {
+                    Elements[i].Add( new CellModel(i, j, b[i * _size + j]));
+                   // MessageBox.Show(boardString[i * _size + j].ToString());
+                }
             }
+        }
+
+        public bool isBoardSolvedCorrectly()
+        {
+            string boardString = "";
+            for (int i = 0; i < _size; i++)
+            {
+                for (int j = 0; j < _size; j++)
+                {
+                    boardString += Elements[i][j];
+                }
+            }
+
+            if (boardString == board.BoardFilledCorrectly)
+                return true;
+            return false;
+        }
+
+        public SudokuBoardViewModel(IWindowManager windowManager, int boardSize)
+        {
+            _size = boardSize;
+            Elements = new ObservableCollection<ObservableCollection<CellModel>>();
+            LoadBoardToScreen();
         }
     }
 }

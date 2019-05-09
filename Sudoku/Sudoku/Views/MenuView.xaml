@@ -24,6 +24,7 @@
         <!--Left Panel-->
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Image Height="100"/>
+            <TextBlock HorizontalAlignment="Center"> Change picture </TextBlock>
             <TextBlock x:Name="UserData" DataContext="{Binding UserData}" Text="{Binding Username}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             <TextBlock x:Name="MyVar"/>
 

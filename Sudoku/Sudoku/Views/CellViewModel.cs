@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sudoku.Models
+﻿namespace Sudoku.Views
 {
-    class CellModel
+    class CellViewModel
     {
         private uint _row;
         private uint _col;
@@ -29,9 +23,18 @@ namespace Sudoku.Models
             get { return _value; }
             set
             {
-                if(value >= 1 && value <= 9)
+                if (value >= 1 && value <= 9)
                     _value = value;
             }
         }
+
+        public CellViewModel(uint row, uint col, uint value)
+        {
+            Row = row;
+            Column = col;
+            Value = value;
+        }
+               
     }
 }
+

@@ -69,6 +69,7 @@ namespace Sudoku.ViewModels
 
                 windowManager.ShowWindow(new MenuViewModel(windowManager));
 
+
                 return;
             }
 
