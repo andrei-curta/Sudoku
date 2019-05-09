@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 
 namespace Sudoku
@@ -20,10 +23,13 @@ namespace Sudoku
         [XmlElement("WonGames")]
         public int WonGames { get; set; }
 
+      
+
         public UserModel(string username, string password)
         {
             this.Username = username;
-            this.Password = password;
+            this.Password = password; 
+           
         }
 
         public UserModel()

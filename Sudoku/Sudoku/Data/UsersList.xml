@@ -18,4 +18,16 @@
     <StartedGames>0</StartedGames>
     <WonGames>0</WonGames>
   </UserModel>
+  <UserModel>
+    <Username>sad</Username>
+    <Password>sad</Password>
+    <StartedGames>0</StartedGames>
+    <WonGames>0</WonGames>
+  </UserModel>
+  <UserModel>
+    <Username>iona</Username>
+    <Password>123</Password>
+    <StartedGames>0</StartedGames>
+    <WonGames>0</WonGames>
+  </UserModel>
 </ArrayOfUserModel>

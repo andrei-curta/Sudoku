@@ -1,5 +1,8 @@
 ﻿using Caliburn.Micro;
+using System;
+using System.IO;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Sudoku.ViewModels
 {
@@ -8,6 +11,8 @@ namespace Sudoku.ViewModels
 
         private UserModel _userData;
         private int _boardSize;
+
+        public BitmapImage Picture { get; set; }
 
         public int BoardSize
         {
@@ -22,6 +27,15 @@ namespace Sudoku.ViewModels
             _boardSize = 9;
             _userData = UsersListModel.CurrentUser;
             this.windowManager = windowManager;
+
+            var path = Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()) +"\\..\\Data\\Users\\" + _userData.Username + "\\profilePic.png";
+            if(!System.IO.File.Exists(path))
+            {
+                path = Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()) + "\\..\\Data\\" + "default.png";
+            }
+
+            Uri imagePath = new Uri(path, UriKind.Absolute);
+            this.Picture = new BitmapImage(imagePath);
         }
 
         protected override void OnActivate()

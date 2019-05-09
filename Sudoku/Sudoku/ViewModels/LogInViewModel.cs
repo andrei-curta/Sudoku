@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Sudoku.ViewModels;
 using System;
+using System.IO;
 using System.Windows;
 
 namespace Sudoku.ViewModels
@@ -66,6 +67,11 @@ namespace Sudoku.ViewModels
                 //Create a new account
                 UsersListModel.CurrentUser = new UserModel(Username, Password);
                 UsersListModel.Save();
+
+                var currentPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+
+                //make a new folder for the new user
+                System.IO.Directory.CreateDirectory(currentPath + "/Data/Users/" + Username);
 
                 windowManager.ShowWindow(new MenuViewModel(windowManager));
 
