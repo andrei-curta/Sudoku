@@ -8,9 +8,8 @@ namespace Sudoku.ViewModels
 {
     public class MenuViewModel : Conductor<object>
     {
-
         private UserModel _userData;
-        private int _boardSize;
+        private int _boardSize = 9;
 
         public BitmapImage Picture { get; set; }
 
@@ -24,7 +23,6 @@ namespace Sudoku.ViewModels
 
         public MenuViewModel(IWindowManager windowManager)
         {
-            _boardSize = 9;
             _userData = UsersListModel.CurrentUser;
             this.windowManager = windowManager;
 
@@ -52,6 +50,21 @@ namespace Sudoku.ViewModels
         public void NewGame()
         {
             windowManager.ShowWindow(new SudokuBoardViewModel(windowManager, _boardSize));
+        }
+
+        public void LoadGame()
+        {
+            var path = Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()) + "\\..\\Data\\Users\\" + _userData.Username + "\\savedGame.txt";
+            if (!System.IO.File.Exists(path))
+            {
+                MessageBox.Show("No saved games!");
+                return;
+            }
+            windowManager.ShowWindow(new SudokuBoardViewModel(windowManager));
+        }
+        public void ShowStats()
+        {
+            windowManager.ShowWindow(new StatisticsViewModel(windowManager));
         }
     }
 }

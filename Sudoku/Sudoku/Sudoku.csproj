@@ -69,9 +69,13 @@
     </ApplicationDefinition>
     <Compile Include="Models\BoardModel.cs" />
     <Compile Include="Models\HandleAPI.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel.cs" />
     <Compile Include="ViewModels\SudokuBoardViewModel.cs" />
     <Compile Include="Views\CellModel.cs" />
     <Compile Include="Views\CellViewModel.cs" />
+    <Compile Include="Views\StatisticsView.xaml.cs">
+      <DependentUpon>StatisticsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SudokuBoardView.xaml.cs">
       <DependentUpon>SudokuBoardView.xaml</DependentUpon>
     </Compile>
@@ -89,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Page Include="Views\StatisticsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SudokuBoardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +139,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Boards\4x4\" />
+    <Folder Include="Data\Boards\6x6\" />
+    <Folder Include="Data\Boards\9x9\" />
     <Folder Include="Data\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

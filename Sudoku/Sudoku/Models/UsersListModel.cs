@@ -11,7 +11,7 @@ namespace Sudoku.ViewModels
     {
         [XmlArray("UserList")]
         [XmlArrayItem("User")]
-        private static List<UserModel> Users;
+        private static List<UserModel> _users;
         private static string SavePath = @"E:\Facultate\Anul_II\Sem_II\MVP\2.Teme\3.Sudoku\Sudoku\Sudoku\Sudoku\Data\UsersList.xml";
         private static UserModel _currentUser;
 
@@ -19,6 +19,12 @@ namespace Sudoku.ViewModels
         {
             get { return _currentUser; }
             set { _currentUser = value; }
+        }
+
+        public static List<UserModel> Users
+        {
+            get { return _users; }
+            set { _users = value; }
         }
 
         static UsersListModel()
@@ -82,6 +88,18 @@ namespace Sudoku.ViewModels
                     return;
                 }
             }
+        }
+
+        public static string GetStatistics()
+        {
+            string str = "";
+
+            foreach (UserModel user in Users)
+            {
+                str += user.ToString();
+                str += "\n";
+            }
+            return str;
         }
     }
 }

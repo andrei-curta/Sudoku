@@ -25,16 +25,19 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Image Height="100" Source="{Binding Picture}"/>
             <TextBlock HorizontalAlignment="Center"> Change picture </TextBlock>
-            <TextBlock x:Name="UserData" DataContext="{Binding UserData}" Text="{Binding Username}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="MyVar"/>
-
+            <TextBlock x:Name="UserData" DataContext="{Binding UserData}" Text="{Binding Username}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 25 0 0"/>
+            <TextBlock Text="Started Games" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  Margin="0 25 0 0"/>
+            <TextBlock DataContext="{Binding UserData}" Text="{Binding StartedGames}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Aqua"/>
+            <TextBlock Text="Won Games" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock DataContext="{Binding UserData}" Text="{Binding WonGames}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="DarkSeaGreen"/>
         </StackPanel>
 
         <!--Right panel-->
-        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
-            <Button FontSize="20" FontWeight="Bold" Margin="20 180 20 0" x:Name="NewGame"> New Game </Button>
-            <Button FontSize="20" FontWeight="Bold" Margin="20 20 20 0"> Load Game </Button>
-            <Button FontSize="20" FontWeight="Bold" Margin="20"> Statistics </Button>
+        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" >
+            <TextBox Margin="20 180 20 0" FontSize="20" TextAlignment="Center" x:Name="BoardSize">9</TextBox>
+            <Button FontSize="20" FontWeight="Bold"  Margin="20 20 20 0" x:Name="NewGame"> New Game </Button>
+            <Button x:Name="LoadGame" FontSize="20" FontWeight="Bold" Margin="20 20 20 0"> Load Game </Button>
+            <Button x:Name="ShowStats" FontSize="20" FontWeight="Bold" Margin="20"> Statistics </Button>
             
         </StackPanel>
     </Grid>

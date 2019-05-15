@@ -22,14 +22,12 @@ namespace Sudoku
 
         [XmlElement("WonGames")]
         public int WonGames { get; set; }
-
       
 
         public UserModel(string username, string password)
         {
             this.Username = username;
             this.Password = password; 
-           
         }
 
         public UserModel()
@@ -66,7 +64,14 @@ namespace Sudoku
             Password = (string)info.GetValue("Password", typeof(string));
             StartedGames = (int)info.GetValue("Started Games", typeof(int));
             WonGames = (int)info.GetValue("Username", typeof(int));
+        }
+        
+        
+        public override string ToString()
+        {
+            string userData = "Username: " + Username +"\nWon Games: " + WonGames + "\nStarted Games: " + StartedGames;
 
+            return userData;
         }
     }
 }

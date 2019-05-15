@@ -31,6 +31,9 @@ namespace Sudoku.Models
             _boardToBeFilled = boardToBeFilled;
         }
 
+        public BoardModel()
+        {
 
+        }
     }
 }

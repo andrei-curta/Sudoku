@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku.Views"
         mc:Ignorable="d"
-        Title="SudokuBoardView" Height="850" Width="800">
+        Title="SudokuBoardView" Height="500" Width="450">
 
 
     <Window.Resources>
@@ -58,8 +58,33 @@
         <RowDefinition Height="20"/>
         
     </Grid.RowDefinitions>
-        <ProgressBar Grid.Column="2" Grid.Row="1"></ProgressBar>
-        <ItemsControl Grid.Row="2" Grid.Column="1" x:Name="grid" ItemTemplate="{DynamicResource TheGrid}" ItemsSource="{Binding Elements}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,10,0,0"/>
+
+        <Menu Height="18" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="New Game" />
+                <MenuItem Header="Open Game" />
+                <MenuItem Header="Save Game" x:Name="SaveGame"/>
+                <MenuItem Header="Statistics" />
+                <MenuItem Header="Exit" />
+            </MenuItem>
+
+            <MenuItem Header="Options">
+                <MenuItem Header="Standard" />
+                <MenuItem Header="Custom" >
+                    <MenuItem.ToolTip>
+                        <ToolTip>Solutions for: 4x4, 6x6, 9x9</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Command="{Binding AboutCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <ProgressBar Grid.Column="1" Grid.Row="1"></ProgressBar>
+        <ItemsControl Grid.Row="2" Grid.Column="1" x:Name="grid" ItemTemplate="{DynamicResource TheGrid}" ItemsSource="{Binding Elements}" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="10,10,0,0"/>
+        <Button x:Name="CheckBoard" Grid.Row="3" Grid.Column="1" Margin="0 25 0 0">Verifica</Button>
     </Grid>
 
 </Window>
